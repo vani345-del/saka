@@ -1,0 +1,94 @@
+/* ===== O QUE FAZEMOS PAGE ===== */
+
+.oqf-modelo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.oqf-modelo-content h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.oqf-modelo-content p {
+  margin-bottom: var(--space-xl);
+}
+
+.oqf-modelo-visual {
+  position: relative;
+  background: var(--color-grey-50);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+
+.oqf-modelo-visual::before {
+  content: '';
+  position: absolute;
+  top: var(--space-xl);
+  left: var(--space-xl);
+  width: 60px;
+  height: 4px;
+  background: var(--color-orange);
+  border-radius: 2px;
+}
+
+.oqf-modelo-visual-text {
+  font-family: var(--font-headline);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-grey-200);
+  line-height: var(--leading-tight);
+  text-align: center;
+}
+
+.oqf-para-quem {
+  max-width: 800px;
+}
+
+.oqf-para-quem h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.oqf-incluido h2 {
+  margin-bottom: var(--space-2xl);
+}
+
+.oqf-transparencia {
+  max-width: 800px;
+}
+
+.oqf-transparencia h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.oqf-cta-section {
+  text-align: center;
+  padding: var(--space-4xl) 0;
+}
+
+.oqf-cta-link {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-orange);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.oqf-cta-link:hover {
+  gap: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .oqf-modelo {
+    grid-template-columns: 1fr;
+  }
+}

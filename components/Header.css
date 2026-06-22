@@ -1,0 +1,169 @@
+/* ============================================
+   HEADER STYLES
+   Sticky header with scroll transition
+   ============================================ */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: var(--space-md) 0;
+  background-color: transparent;
+  transition: background-color var(--transition-base),
+              box-shadow var(--transition-base),
+              padding var(--transition-base);
+}
+
+.header.scrolled {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-sm) 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+/* ---------- Logo ---------- */
+.header-logo {
+  font-family: var(--font-headline);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-black);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.header-logo:hover {
+  color: var(--color-orange);
+}
+
+/* ---------- Desktop Nav ---------- */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  list-style: none;
+}
+
+.header-nav a {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-grey-600);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.header-nav a:hover {
+  color: var(--color-black);
+}
+
+/* ---------- Header CTA (desktop) ---------- */
+.header-cta {
+  flex-shrink: 0;
+}
+
+/* ---------- Hamburger ---------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1010;
+  padding: 0;
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-black);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+}
+
+.hamburger-line + .hamburger-line {
+  margin-top: 6px;
+}
+
+/* Hamburger → X animation */
+.hamburger.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(3px, 3px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ---------- Mobile Overlay ---------- */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1005;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+  list-style: none;
+  margin-bottom: var(--space-3xl);
+}
+
+.mobile-nav a {
+  font-family: var(--font-headline);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--color-black);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.mobile-nav a:hover {
+  color: var(--color-orange);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .header-nav,
+  .header-cta {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
